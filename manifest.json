@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "ultra_kaomoji",
+  "version": "1.0",
+  "description": "あなたに喜怒哀楽機能を提供します。",
+  "permissions": ["activeTab", "storage", "clipboardWrite"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "ultra_kaomoji"
+  },
+  "content_security_policy": {
+  "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+} 

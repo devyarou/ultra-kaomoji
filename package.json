@@ -1,0 +1,20 @@
+{
+  "name": "random-emoji-extension",
+  "version": "1.0.0",
+  "description": "あなたに喜怒哀楽機能を提供します。",
+  "main": "popup.js",
+  "scripts": {
+    "build-icons": "node build-icons.js"
+  },
+  "keywords": [
+    "chrome-extension",
+    "emoji",
+    "random",
+    "browser-extension"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "sharp": "^0.32.6"
+  }
+} 

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ultra_kaomojiー</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <h1>ultra_kaomoji</h1>
+        
+        <div class="emoji-display">
+            <div id="emoji" class="emoji-text">😊</div>
+        </div>
+        
+        <div class="buttons">
+            <button id="generateBtn" class="generate-btn">新しい顔文字を生成</button>
+            <button id="copyBtn" class="copy-btn">クリップボードにコピー</button>
+        </div>
+        
+        <div class="category-buttons">
+            <button class="category-btn" data-category="all">すべて</button>
+            <button class="category-btn" data-category="happy">喜</button>
+            <button class="category-btn" data-category="angry">怒</button>
+            <button class="category-btn" data-category="sad">哀</button>
+            <button class="category-btn" data-category="joy">楽</button>
+        </div>
+        
+        <div class="history">
+            <h3>履歴</h3>
+            <div id="historyList" class="history-list"></div>
+        </div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html> 

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>アイコン生成</title>
+</head>
+<body>
+    <canvas id="canvas16" width="16" height="16"></canvas>
+    <canvas id="canvas48" width="48" height="48"></canvas>
+    <canvas id="canvas128" width="128" height="128"></canvas>
+    
+    <script>
+        function drawIcon(canvasId, size) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            
+            // グラデーション背景
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#667eea');
+            gradient.addColorStop(1, '#764ba2');
+            
+            // 背景円
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.arc(size/2, size/2, size/2 - 2, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // 白い縁取り
+            ctx.strokeStyle = '#fff';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+            
+            // 目
+            const eyeSize = size * 0.1;
+            ctx.fillStyle = '#fff';
+            ctx.beginPath();
+            ctx.arc(size * 0.35, size * 0.4, eyeSize, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(size * 0.65, size * 0.4, eyeSize, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // 口（笑顔）
+            ctx.strokeStyle = '#fff';
+            ctx.lineWidth = size * 0.03;
+            ctx.beginPath();
+            ctx.arc(size/2, size * 0.6, size * 0.2, 0, Math.PI);
+            ctx.stroke();
+            
+            // 頬の赤み
+            ctx.fillStyle = 'rgba(255, 107, 107, 0.6)';
+            ctx.beginPath();
+            ctx.arc(size * 0.25, size * 0.5, size * 0.06, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(size * 0.75, size * 0.5, size * 0.06, 0, 2 * Math.PI);
+            ctx.fill();
+        }
+        
+        // アイコンを描画
+        drawIcon('canvas16', 16);
+        drawIcon('canvas48', 48);
+        drawIcon('canvas128', 128);
+        
+        // PNGデータを取得してダウンロード
+        function downloadCanvas(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+        
+        // ページ読み込み後にダウンロード
+        window.onload = function() {
+            setTimeout(() => {
+                downloadCanvas('canvas16', 'icon16.png');
+                downloadCanvas('canvas48', 'icon48.png');
+                downloadCanvas('canvas128', 'icon128.png');
+            }, 1000);
+        };
+    </script>
+</body>
+</html> 
